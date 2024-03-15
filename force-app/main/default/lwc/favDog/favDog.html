@@ -1,0 +1,70 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 09-09-2022
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+
+    <lightning-tabset variant="scoped">
+        <lightning-tab label="Dogs!"> 
+            <div class="c-container">
+                <lightning-layout horizontal-align="space" vertical-align="center">
+                    <lightning-layout-item padding="around-small">
+                        <lightning-combobox name="progress" value="" placeholder="Select a Breed" options={allBreedList}
+                            onchange={handleBreedChange}></lightning-combobox>
+                    </lightning-layout-item>
+                    <lightning-layout-item if:true={isSubBreedExist} padding="around-small">
+                        <lightning-combobox name="progress" value="" placeholder="Select a Sub Breed" options={subBreeds}
+                            onchange={handleSubBreedChange}>
+                        </lightning-combobox>
+                    </lightning-layout-item>
+                    <lightning-layout-item padding="around-small">
+                        <lightning-button variant="brand" label="Get DOGS!" title="Primary action" onclick={getBreedImages}
+                            class="slds-m-left_x-small"></lightning-button>
+                    </lightning-layout-item>
+                </lightning-layout>
+            </div>
+        
+        
+            <lightning-card if:true={isBreedImagesExist}>
+                <div class="slds-var-p-around_medium">
+                    <lightning-layout multiple-rows>
+                            <template for:each={dogImagesArray} for:item="dog">
+                                <lightning-layout-item size="3" padding="around-small" key={dog.link}>
+                                    <div class="addToFavory slds-box slds-var-p-around_medium" onclick={addToFavorites}>
+                                        <!-- <div class="slds-text-align_center"><strong>API: </strong>{entry.API}</div> -->
+                                        <!-- <div><strong>Link: </strong>{link}</div> -->
+                                        <img src={dog.link} height="150px" />
+                                        <p>{dog.breed}</p>
+                                    </div>
+                                </lightning-layout-item>
+                            </template>
+                    </lightning-layout>
+                </div>
+            </lightning-card>
+        
+        </lightning-tab>
+        <lightning-tab label="Favorites"> 
+            
+            <lightning-card>
+                <div class="slds-var-p-around_medium">
+                    <lightning-layout multiple-rows>
+                            <template for:each={favoritesDogs} for:item="dog">
+                                <lightning-layout-item size="3" padding="around-small" key={dog.link}>
+                                    <div class="addToFavory slds-box slds-var-p-around_medium">
+                                        <!-- <div class="slds-text-align_center"><strong>API: </strong>{entry.API}</div> -->
+                                        <!-- <div><strong>Link: </strong>{link}</div> -->
+                                        <img src={dog.link} height="150px" />
+                                        <p>{dog.breed}</p>
+                                    </div>
+                                </lightning-layout-item>
+                            </template>
+                    </lightning-layout>
+                </div>
+            </lightning-card>
+            
+            </lightning-tab>
+</lightning-tabset>
+</template>
