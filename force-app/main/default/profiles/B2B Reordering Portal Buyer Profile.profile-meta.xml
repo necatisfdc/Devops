@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Profile xmlns="http://soap.sforce.com/2006/04/metadata">
+    <classAccesses>
+        <apexClass>DogApi</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <custom>true</custom>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Devops_testing__c.My_Field__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <layoutAssignments>
+        <layout>Devops_testing__c-Devops testing Layout</layout>
+    </layoutAssignments>
+    <tabVisibilities>
+        <tab>Devops_testing__c</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <userLicense>External Apps Login</userLicense>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>EnableNotifications</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>SelectFilesFromSalesforce</name>
+    </userPermissions>
+</Profile>
